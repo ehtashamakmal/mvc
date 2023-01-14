@@ -1,0 +1,63 @@
+﻿@model Electronic_Shop.Models.Employee
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Employee</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employee_Name)
+        </dd>
+
+        <br />
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee_Age)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employee_Age)
+        </dd>
+
+
+        <br />
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee_CNIC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employee_CNIC)
+        </dd>
+
+
+        <br />
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee_Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employee_Address)
+        </dd>
+        <br />
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeeImage)
+        </dt>
+
+        <dd>
+            <img src="@Url.Content(Session["Image2"].ToString())" height="80" width="80" />
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Employee_Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

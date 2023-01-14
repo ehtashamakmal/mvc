@@ -1,0 +1,68 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+@Html.Raw(TempData["LoginSuccessMessage"])
+<center>
+
+    <h1 style="color:blueviolet">DashBoard</h1>
+    <br />
+    <br />
+    <h3 style="color:darkblue">Welcome  To Dashboard Dear @Session["Username"]</h3>
+    <br />
+    <br />
+
+    <div class="container-fluid" style="background-color:gold">
+        <br />
+        <br />
+        <h1>@Html.ActionLink("Product", "Product", "User")</h1>
+        <br />
+        <br />
+    </div>
+
+
+    <br />
+    <br />
+
+
+    <br /><br />
+
+    <div class="container-fluid" style="background-color:orange">
+        <br />
+        <br />
+        <h1>@Html.ActionLink("Employee", "Employee", "User")</h1>
+        <br />
+        <br />
+    </div>
+
+    <br /><br />
+
+    <div class="container-fluid" style="background-color:antiquewhite">
+        <br />
+        <br />
+        <h1>@Html.ActionLink("Customer", "Customer", "User")</h1>
+        <br />
+        <br />
+    </div>
+
+
+    <br /><br />
+
+    <div class="container-fluid" style="background-color:coral">
+        <br />
+        <br />
+        <h1>@Html.ActionLink("Category", "Category", "User")</h1>
+        <br />
+        <br />
+    </div>
+    <br /><br />
+
+    <div class="container-fluid" style="background-color:cornsilk">
+        <br />
+        <br />
+        <h1>@Html.ActionLink("Logout", "Logout", "User")</h1>
+        <br />
+        <br />
+    </div>
+</center>

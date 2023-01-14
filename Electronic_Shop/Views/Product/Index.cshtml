@@ -1,0 +1,73 @@
+﻿@model IEnumerable<Electronic_Shop.Models.Product>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Product</h2>
+@Html.Raw(TempData["CreateMessage"])
+@Html.Raw(TempData["UpdateMessage"])
+@Html.Raw(TempData["DeleteMessage"])
+
+@using (Html.BeginForm("Index", "Product", FormMethod.Get))
+{
+    <b>Search By: </b> @Html.RadioButton("searchBy", "Type")<text> Type</text>
+    @Html.RadioButton("searchBy", "Name", true)<text>Name</text><br /><br />
+
+    @Html.TextBox("Search")<input type="submit" value="Search" /><br /><br />
+}
+
+
+
+<p>
+    @Html.ActionLink("Create New", "ProductCreate")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Product_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Product_Type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Product_Quantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Product_Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProdImage)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product_Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product_Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product_Price)
+            </td>
+            <td>
+                <img src="@Url.Content(item.ProdImage)" height="80" width="80" />
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Product_Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Product_Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Product_Id })
+            </td>
+        </tr>
+    }
+
+
+</table>
+<h1>@Html.ActionLink("Logout", "Logout", "User")</h1>

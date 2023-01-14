@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Electronic_Shop.Models.Customer>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Customer</h2>
+@Html.Raw(TempData["CreateMessage"])
+@Html.Raw(TempData["UpdateMessage"])
+@Html.Raw(TempData["DeleteMessage"])
+
+@using (Html.BeginForm("Index", "Customer",FormMethod.Get))
+{
+    <b>Search By: </b> @Html.RadioButton("searchBy", "Gender")<text>Gender</text>
+    @Html.RadioButton("searchBy", "Name", true)<text>Name</text><br /><br />
+    @Html.TextBox("Search")<input type="submit" value="Search" />
+}
+    <p>
+
+    <p>
+        @Html.ActionLink("Create New", "Customer")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Cust_Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cust_City)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gender)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cust_Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cust_City)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Gender)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Cust_Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Cust_Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Cust_Id })
+                </td>
+            </tr>
+        }
+
+    </table>
+    <h1>@Html.ActionLink("Logout", "Logout", "User")</h1>

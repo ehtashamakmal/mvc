@@ -1,0 +1,68 @@
+﻿@model Electronic_Shop.Models.Product
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Product</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Product_Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Product_Id)
+        </dd>
+
+        <br />
+        <dt>
+            @Html.DisplayNameFor(model => model.Product_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Product_Name)
+        </dd>
+
+        <br />
+        <dt>
+            @Html.DisplayNameFor(model => model.Product_Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Product_Type)
+        </dd>
+        <br />
+        <dt>
+            @Html.DisplayNameFor(model => model.Product_Quantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Product_Quantity)
+        </dd>
+        <br />
+        <dt>
+            @Html.DisplayNameFor(model => model.Product_Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Product_Price)
+        </dd>
+        <br />
+        <dt>
+            @Html.DisplayNameFor(model => model.ProdImage)
+        </dt>
+
+        <dd>
+            <img src="@Url.Content(Session["Image2"].ToString())" height="80" width="80" />
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Product_Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
